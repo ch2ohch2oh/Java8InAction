@@ -36,6 +36,30 @@ public class FilteringApples{
 		});
 		System.out.println(redApples2);
 
+		// Use anonymous class
+		prettyPrintApple(inventory, new AppleFormatter() {
+			@Override
+			public String format(Apple a) {
+				if(a.getColor().equals("green")) {
+					return "A green apple that weighs " + a.getWeight();
+				} else {
+					return a.toString();
+				}
+			}
+		});
+
+		// Use lambda to print all capitalized output
+		prettyPrintApple(inventory, (Apple a) -> a.toString().toUpperCase());
+	}
+
+	interface AppleFormatter {
+		String format(Apple a);
+	}
+
+	public static void prettyPrintApple(List<Apple> inventory, AppleFormatter formatter) {
+		for(Apple apple: inventory){
+			System.out.println(formatter.format(apple));
+		}
 	}
 
 	public static List<Apple> filterGreenApples(List<Apple> inventory){

@@ -20,6 +20,8 @@ public class ExecuteAround {
 	}
 
     public static String processFileLimited() throws IOException {
+		// This is try with resource
+		// The resource must be an object that implements AutoCloseable
         try (BufferedReader br =
                      new BufferedReader(new FileReader("lambdasinaction/chap3/data.txt"))) {
             return br.readLine();
