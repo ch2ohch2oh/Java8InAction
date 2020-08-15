@@ -33,7 +33,7 @@ public class BuildingStreams {
         
         Stream.iterate(new int[]{0, 1}, t -> new int[]{t[1],t[0] + t[1]})
               .limit(10)
-              . map(t -> t[0])  
+              .map(t -> t[0])
               .forEach(System.out::println);
 
         // random stream of doubles with Stream.generate
@@ -66,12 +66,12 @@ public class BuildingStreams {
               };
          IntStream.generate(fib).limit(10).forEach(System.out::println);
 
-         long uniqueWords = Files.lines(Paths.get("lambdasinaction/chap5/data.txt"), Charset.defaultCharset())
-                                 .flatMap(line -> Arrays.stream(line.split(" ")))
-                                 .distinct()
-                                 .count();
-
-         System.out.println("There are " + uniqueWords + " unique words in data.txt");
+         // long uniqueWords = Files.lines(Paths.get("lambdasinaction/chap5/data.txt"), Charset.defaultCharset())
+         //                         .flatMap(line -> Arrays.stream(line.split(" ")))
+         //                         .distinct()
+         //                         .count();
+         //
+         // System.out.println("There are " + uniqueWords + " unique words in data.txt");
 
 
     }
